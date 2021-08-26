@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, TouchableOpacity, Text, ToastAndroid } from "react-native";
 import ImagePicker from "react-native-image-crop-picker";
-import { BASE_URL, LOCAL_URL } from "@env";
+import { REACT_APP_SERVER_URL, REACT_APP_VIDEOSDK_URL } from "@env";
 
 export default function App() {
   const [selectedFile, setSelectedFile] = useState("");
@@ -15,7 +15,7 @@ export default function App() {
 
   const getToken = async () => {
     try {
-      const response = await fetch(`${LOCAL_URL}/get-token`, {
+      const response = await fetch(`${REACT_APP_SERVER_URL}/get-token`, {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -31,7 +31,7 @@ export default function App() {
 
   const fetchStorageAPI = async (token) => {
     try {
-      const response = await fetch(`${BASE_URL}v1/files`, {
+      const response = await fetch(`${REACT_APP_VIDEOSDK_URL}/v1/files`, {
         method: "POST",
         headers: {
           Authorization: token,
@@ -90,7 +90,7 @@ export default function App() {
   };
 
   const onEncode = () => {
-    const url = `${BASE_URL}v1/encoder/jobs`;
+    const url = `${REACT_APP_VIDEOSDK_URL}/v1/encoder/jobs`;
     var options = {
       method: "POST",
       headers: {
