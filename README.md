@@ -10,7 +10,6 @@ This code sample demonstrates a [Video SDK Video On Demand API](https://docs.vid
 - Adaptive video streaming
 - Built for mobile devices
 
-![video-on-demand.jpg](./public/video-on-demand.jpg)
 
 ## Features
 
